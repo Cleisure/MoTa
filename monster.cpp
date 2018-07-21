@@ -132,7 +132,7 @@ Monster::Monster(int i)
 
 }
 
-void Monster::action(Hero* hero)
+bool Monster::action(Hero* hero)
 {
     qDebug()<<"hi monster";
     int turn=life/(hero->getAtt()-defence);
@@ -143,10 +143,9 @@ void Monster::action(Hero* hero)
         hero->setLife(hero->getLife()-turn*(attack-hero->getDef())*attack);
         hero->setMoney(hero->getMoney()+money);
         hero->setExp(hero->getExp()+experience);
-        emit clearing();
         qDebug()<<hero->getLife();
       //  qDebug()<<"emitted";
-
+        return false;
     }
-    emit changed();
+    else return true;
 }

@@ -13,7 +13,7 @@ class Door:public Block
 
 public:
     Door(int id);//0 red 1 gold 2 blue
-    void action(Hero *hero);
+    bool action(Hero *hero);
 private:
     int id;
 };

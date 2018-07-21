@@ -1,7 +1,7 @@
 #include "prop.h"
 #include "hero.h"
 
-Prop::Prop(int num)//sorts of props
+Prop::Prop(int num) //sorts of props
 {
     id = num;
     /*
@@ -16,28 +16,52 @@ Prop::Prop(int num)//sorts of props
     switch (id) {
     case 1://sward
         addAtt=10;
+        pix= new QPixmap(":/myMonster/monster0.png");
+        pix->scaledToHeight(40);
+        this->setWindowFlags(Qt::Widget | Qt::FramelessWindowHint |
+                            Qt::WindowSystemMenuHint | Qt::WindowStaysOnTopHint);
         break;
     case 2://shield
         addDef=10;
+        pix= new QPixmap(":/myMonster/monster0.png");
+        pix->scaledToHeight(40);
+        this->setWindowFlags(Qt::Widget | Qt::FramelessWindowHint |
+                            Qt::WindowSystemMenuHint | Qt::WindowStaysOnTopHint);
         break;
     case 3://medic
         addHp=10;
+        pix= new QPixmap(":/myMonster/monster0.png");
+        pix->scaledToHeight(40);
+        this->setWindowFlags(Qt::Widget | Qt::FramelessWindowHint |
+                            Qt::WindowSystemMenuHint | Qt::WindowStaysOnTopHint);
         break;
     case 4://Gkey
         addGKey=1;
+        pix= new QPixmap(":/myMonster/monster0.png");
+        pix->scaledToHeight(40);
+        this->setWindowFlags(Qt::Widget | Qt::FramelessWindowHint |
+                            Qt::WindowSystemMenuHint | Qt::WindowStaysOnTopHint);
         break;
     case 5://Bkey
         addBKey=1;
+        pix= new QPixmap(":/myMonster/monster0.png");
+        pix->scaledToHeight(40);
+        this->setWindowFlags(Qt::Widget | Qt::FramelessWindowHint |
+                            Qt::WindowSystemMenuHint | Qt::WindowStaysOnTopHint);
         break;
     case 6://Rkey
         addRKey=1;
+        pix= new QPixmap(":/myMonster/monster0.png");
+        pix->scaledToHeight(40);
+        this->setWindowFlags(Qt::Widget | Qt::FramelessWindowHint |
+                            Qt::WindowSystemMenuHint | Qt::WindowStaysOnTopHint);
         break;
     default:
         break;
     }
 }
 
-void Prop::action(Hero* hero)
+bool Prop::action(Hero* hero)
 {
     hero->setLife(hero->getLife()+addHp);
     hero->setAtt(hero->getAtt()+addAtt);
@@ -46,6 +70,6 @@ void Prop::action(Hero* hero)
     hero->setBKey(hero->getBKey()+addBKey);
     hero->setRKey(hero->getRKey()+addRKey);
 
-    hide();
-    move(0,0);
+    return false;
 }
+

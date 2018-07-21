@@ -14,7 +14,7 @@
 Hero *currentH;
 extern int currentF;
 extern int flag[9][11][11];
-extern Block *hi;
+
 
 
 Widget::Widget(QWidget *parent) :
@@ -25,6 +25,7 @@ Widget::Widget(QWidget *parent) :
 
     //scene & view
     scene = new QGraphicsScene(this);
+
     for(int i=0;i<9;i++){
         client[i] =  new GameWindow(this);//view
         client[i]->setMap(i);
@@ -36,7 +37,7 @@ Widget::Widget(QWidget *parent) :
         client[i]->setFixedHeight(520);  //view
         client[i]->setFixedWidth(720);
         client[i]->scene->setSceneRect(0,0,720,520); //scene
-
+        connect(client[i],&GameWindow::changed,this,&Widget::setDisplay);
         //hero
         client[i]->hero->itempix = scene->addPixmap(*client[i]->hero->pix);
         client[i]->hero->setXY(0, 1);
@@ -189,7 +190,11 @@ Widget::Widget(QWidget *parent) :
     scene->addWidget(goldk);
     scene->addWidget(floor);
 
-    connect(client[currentF]->focusB,&Block::changed,this,&Widget::setDisplay);
+    for(int i=0;i<9;i++)
+    {
+
+
+    }
 }
 
 Widget::~Widget()
@@ -226,18 +231,9 @@ void Widget::paintEvent(QPaintEvent *event)
 void Widget::floUp()
 {
     qDebug()<<currentF<<"upupup";
-    currentH->itempix->hide();
-    delete client[currentF]->focusB;
+    client[currentF]->hero->itempix->hide();
     currentF++;
     currentH=client[currentF]->hero;
-    qDebug()<<"after delete"<<client[currentF]->focusB->cpos.x();
-    client[currentF]->focusB=new Block;
-    client[currentF]->focusB=client[currentF]->bmap[0][0];
-    hi=client[currentF]->focusB;
-    qDebug()<<"after new "<<client[currentF]->focusB->cpos.x();
-
-    connect(client[currentF]->focusB,&Block::changed,this,&Widget::setDisplay);
-    qDebug()<<client[currentF]->focusB->cpos.x();
   //  qDebug()<<currentH->getFloor();
     currentH->setFloor(currentF);
   //  floor->setText(QString::number(currentF));

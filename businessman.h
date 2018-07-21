@@ -1,6 +1,7 @@
 #ifndef BUSINESSMAN_H
 #define BUSINESSMAN_H
 
+
 #include <QObject>
 #include <QWidget>
 #include <QDialog>
@@ -19,7 +20,7 @@ private:
 
 public:
     businessMan(int);//initial with business man id
-    virtual void action(Hero *hero);//hezitated from block|| a virtual function
+    bool action(Hero *hero);//hezitated from block|| a virtual function
 
 signals:
 

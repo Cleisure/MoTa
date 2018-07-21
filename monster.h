@@ -12,9 +12,8 @@ class Monster:public Block
 {
 
 public:
-
      Monster(int id);
-     void action(Hero *hero);
+     bool action(Hero *hero);
 signals:
 
 

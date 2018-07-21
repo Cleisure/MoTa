@@ -32,7 +32,6 @@ public:
     GameWindow *upF;
     GameWindow *downF;
     Hero* hero;
-    Block *focusB;
     bool canArrive(qreal x,qreal y);
     Block *bmap[11][11];
     //flag value      0:    1:block     2:floorup   3:down
@@ -42,8 +41,10 @@ signals:
     void meetBlock(int f,int a,int b);
     void floorUp();
     void floorDown();
+    void changed();
 public slots:
-    void clear();
+
+
 };
 
 #endif // GAMEWINDOW_H

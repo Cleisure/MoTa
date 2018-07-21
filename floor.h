@@ -13,7 +13,7 @@ class Floor:public Block
 
 public:
     Floor(bool up);
-    void action(Hero *hero);
+    bool action(Hero *hero);
 private:
     bool up;
 };

@@ -34,7 +34,9 @@ SOURCES += \
     floor.cpp \
     brick.cpp \
     door.cpp \
-    prop.cpp
+    prop.cpp \
+    start.cpp \
+    businessman.cpp
 
 HEADERS += \
         widget.h \
@@ -46,10 +48,13 @@ HEADERS += \
     floor.h \
     brick.h \
     door.h \
-    prop.h
+    prop.h \
+    start.h \
+    businessman.h
 
 FORMS += \
-        widget.ui
+        widget.ui \
+    start.ui
 
 RESOURCES += \
     mymap.qrc

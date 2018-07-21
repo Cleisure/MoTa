@@ -21,8 +21,8 @@
         <file>bluedoor.png</file>
         <file>reddoor.png</file>
         <file>rk.png</file>
-        <file>yellowdoor.png</file>
-        <file>yk.png</file>
+        <file>golddoor.png</file>
+        <file>gk.png</file>
     </qresource>
     <qresource prefix="/myMonster">
         <file>monster0.png</file>

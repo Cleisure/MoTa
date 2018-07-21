@@ -21,7 +21,7 @@ Floor::Floor(bool u)
     }
 }
 
-void Floor::action(Hero *hero)
+bool Floor::action(Hero *hero)
 {
-
+    return true;
 }

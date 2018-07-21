@@ -26,7 +26,7 @@ Door::Door(int i)
     }
 }
 
-void Door::action(Hero *hero)
+bool Door::action(Hero *hero)
 {
     switch(id)
     {
@@ -34,19 +34,25 @@ void Door::action(Hero *hero)
         if(hero->getRKey()>0)
         {
             hero->setRKey(hero->getRKey()-1);
-            this->deleteLater();
+            return false;
         }
+        else return true;
+        break;
     case 1:
         if(hero->getGKey()>0)
         {
             hero->setGKey(hero->getGKey()-1);
-            this->deleteLater();
+            return false;
         }
+        else return true;
+        break;
     case 2:
         if(hero->getBKey()>0)
         {
             hero->setBKey(hero->getBKey()-1);
             this->deleteLater();
         }
+        else return true;
+        break;
     }
 }

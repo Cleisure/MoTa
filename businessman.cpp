@@ -1,6 +1,6 @@
+#include "businessman.h"
 #include <QPushButton>
 #include <QLabel>
-#include "businessman.h"
 #include "hero.h"
 
 businessMan::businessMan(int num)
@@ -28,7 +28,7 @@ businessMan::businessMan(int num)
         B.setText(QObject::tr("增加5点攻击力            ￥25"));
         C.setText(QObject::tr("增加5点防御             ￥25"));
         cost=25;addHp=800;addAtt=5;addDef=5;addGKey=0;addBKey=0;addRKey=0;
-        pix= new QPixmap("");
+        pix= new QPixmap(":/myMonster/monster24.png");
         pix->scaledToHeight(40);
         this->setWindowFlags(Qt::Widget | Qt::FramelessWindowHint |
                            Qt::WindowSystemMenuHint | Qt::WindowStaysOnTopHint);
@@ -38,7 +38,7 @@ businessMan::businessMan(int num)
         B.setText(QObject::tr("增加15点攻击力            ￥75"));
         C.setText(QObject::tr("增加15点防御              ￥75"));
         cost=75;addHp=2400;addAtt=15;addDef=15;addGKey=0;addBKey=0;addRKey=0;
-        pix= new QPixmap("");
+        pix= new QPixmap(":/myMonster/monster24.png");
         pix->scaledToHeight(40);
         this->setWindowFlags(Qt::Widget | Qt::FramelessWindowHint |
                            Qt::WindowSystemMenuHint | Qt::WindowStaysOnTopHint);
@@ -48,7 +48,7 @@ businessMan::businessMan(int num)
         B.setText(QObject::tr("蓝钥匙1把            ￥50"));
         C.setText(QObject::tr("红钥匙1把            ￥100"));
 
-        pix= new QPixmap("");
+        pix= new QPixmap(":/myMonster/monster24.png");
         pix->scaledToHeight(40);
         this->setWindowFlags(Qt::Widget | Qt::FramelessWindowHint |
                            Qt::WindowSystemMenuHint | Qt::WindowStaysOnTopHint);
@@ -62,9 +62,10 @@ businessMan::businessMan(int num)
 
 }
 
-void businessMan::action(Hero *h){//hezitated from block|| a virtual function
+bool businessMan::action(Hero *h){//hezitated from block|| a virtual function
     hero=h;
     shop->show();
+    return true;
 }
 
 void businessMan::buyA(){//choose A

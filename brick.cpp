@@ -10,7 +10,7 @@ Brick::Brick()
                         Qt::WindowSystemMenuHint | Qt::WindowStaysOnTopHint);
 }
 
-void Brick::action(Hero *hero)
+bool Brick::action(Hero *hero)
 {
-
+    return true;
 }

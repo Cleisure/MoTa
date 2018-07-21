@@ -4,9 +4,6 @@
 #include <QWidget>
 #include <QGraphicsPixmapItem>
 
-
-
-
 class Hero;
 
 class Block : public QWidget
@@ -22,9 +19,9 @@ public:
     QPointF cpos;
     void setPos(qreal x,qreal y);
     void setXY(int a,int b);
-    virtual void action(Hero *hero )=0;
+    virtual bool action(Hero *hero );
+    //true :stay ;false :clear
 signals:
-
 public slots:
 };
 
